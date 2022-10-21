@@ -4,3 +4,7 @@ body {
 hr {
     color: red;
 }
+.line{
+    border-top: 3px solid red;
+}
+
