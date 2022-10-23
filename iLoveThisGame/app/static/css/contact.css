@@ -5,7 +5,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 	background:black;
 }
-.container{
+.contact{
     width: 500px;
     border: 2px solid white;
     background-color:rgb(158, 33, 33);
@@ -43,8 +43,8 @@ textarea{
     color: white;
     background-color: black;
     width: 25%;
-   align-content: center;
-   margin-left: 180px;
+    align-content: center;
+    margin-left: 180px;
 }
 
 /*Small*/

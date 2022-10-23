@@ -1,0 +1,40 @@
+    {% load static %}
+
+     <!-- Menú -->
+     <nav class="navbar navbar-expand-lg bg-transparent">
+        <div class="container-fluid">
+            <img src="{% static '/img/Iconopelota.ico' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top ">
+            <a class="navbar-brand text-light margenes" href="#">ILoveThisGame</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" style="margin-left:8rem ;" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown me-3">
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Indumentaria</a></li>
+                            <li><a class="dropdown-item" href="#">Zapatillas</a></li>
+                            <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link text-light" href="#">Ofertas</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link text-light" href="#">Contacto</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link  text-light">Empresa</a>
+                    </li>
+                </ul>
+                <button class="btn btn-danger" type="submit"> Iniciar Sesión</button>
+            </div>
+        </div>
+    </nav>
+
