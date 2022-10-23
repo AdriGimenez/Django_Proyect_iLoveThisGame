@@ -1,65 +1,16 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'app/layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-</head>
+{% load static %}
 
-<body>
-    <!-- Menú -->
-    <nav class="navbar navbar-expand-lg bg-transparent">
-        <div class="container-fluid">
-            <img src="../img/Iconopelota.ico" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            <a class="navbar-brand text-light" href="#">ILoveThisGame</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Categorías
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Ofertas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled text-secondary">Empresa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" href="#">Iniciar Sesión</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                    <button class="btn btn-danger" type="submit">Buscar</button>
-                </form>
-            </div>
+{% block contenido %}
+    <div class="row">
+        <div class="col-3 offset-md-4 buscar">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2 buscar-margin" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-danger bi bi-search buscar-margin" type="submit"></button>
+            </form>
         </div>
-    </nav>
-
+    </div>
     <hr><!-- dar mayor grosor -->
 
     <!-- Carrusel -->
@@ -75,21 +26,21 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../img/fondo-jordan1.png" class="d-block w-100" alt="Imagen 1">
+                <img src="{% static '/img/fondo-jordan1.png' %}" class="d-block w-100" alt="Imagen 1">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../img/jumping.jpg" class="d-block w-100" alt="">
+                <img src="{% static '/img/jumping.jpg' %}" class="d-block w-100" alt="">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the second slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../img/jordan_camisetas.jpg" class="d-block w-100" alt="">
+                <img src="{% static '/img/jordan_camisetas.jpg' %}" class="d-block w-100" alt="">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
                     <p>Some representative placeholder content for the third slide.</p>
@@ -107,7 +58,6 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
     <br>
     <br>
 
@@ -154,14 +104,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-
-
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+{% endblock %}

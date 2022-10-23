@@ -1,0 +1,21 @@
+body {
+    background-color: black;
+}
+hr {
+    color: red;
+}
+.line{
+    margin-top: 40px;
+    border-top: 3px solid red;
+}
+.margenes{
+    margin-left: 4px;
+}
+.buscar{
+    width: 40%;
+   margin-right: 0;
+   text-align: right;
+}
+.buscar-margin{
+    margin-top:2rem ;
+}
