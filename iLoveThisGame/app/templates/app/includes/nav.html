@@ -1,10 +1,10 @@
     {% load static %}
 
      <!-- Menú -->
-     <nav class="navbar navbar-expand-lg bg-transparent">
+     <nav class="navbar navbar-expand-lg bg-transparent linea-nav">
         <div class="container-fluid">
-            <img src="{% static '/img/Iconopelota.ico' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top ">
-            <a class="navbar-brand text-light margenes" href="#">ILoveThisGame</a>
+            <img src="{% static '/img/baloncesto.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top ">
+            <a class="navbar-brand text-light margenes marca" href="#">ILoveThisGame</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -12,6 +12,11 @@
             </button>
             <div class="collapse navbar-collapse" style="margin-left:8rem ;" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown me-3">
+                        <a class="nav-link text-light" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Home
+                        </a>
                     <li class="nav-item dropdown me-3">
                         <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -33,8 +38,11 @@
                         <a class="nav-link  text-light">Empresa</a>
                     </li>
                 </ul>
-                <button class="btn btn-danger" type="submit"> Iniciar Sesión</button>
+                <button class="btn btn-danger me-3" type="submit"> Iniciar Sesión</button>
+                <button class="btn btn-secondary bi bi-cart3 me-3" type="submit"></button>
             </div>
         </div>
+        <div class="linea-nav"></div>
     </nav>
+    
 
