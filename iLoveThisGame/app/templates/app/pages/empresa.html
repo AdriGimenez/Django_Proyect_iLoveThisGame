@@ -1,0 +1,29 @@
+{% extends 'app/layout.html' %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/empresa.css' %}">
+{% endblock %}
+
+{% block contenido %}
+<main class="empresa" style="background-image: url({% static '/img/j1.jpg' %});">
+    <div class="empresa-contenido">
+        <h3>i Love</h3>
+        <h2>
+            <b>This Game</b>
+        </h2>
+        <p>Somos una empresa dedicada a la mejor experiencia de compra deportiva.
+            <br> Seremos lideres en la comercializacion de artículos deportivos 
+            <br> empleando la tecnología de RA. 
+            <br> Un proceso simple y amigable, sumado a la garantía al cliente y la dilegencia, 
+            <br> son los pilares de nuestra empresa."
+        </p>
+        <video src="{% static '/video/iLove_This_Game.mp4' %}" width="640" height="350"
+                autoplay muted loop>
+        </video>
+        <div>
+            <button class="btn">Comenzar</button>
+        </div>
+    </div>
+</main>
+{% endblock%}

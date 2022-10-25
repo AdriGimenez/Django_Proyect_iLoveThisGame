@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h2 {
+    font-size: 5rem;
+    color: white;
+} 
+h3 {
+    font-size: 3rem;
+    color: white;
+}
+.empresa {
+    width: 100vw;
+    height: 120vh;
+    background-color: black;
+    background-image: url(static/img/j1.jpg);
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: contain;
+    /* max-width: 100%; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    font-family:'Rubik', sans-serif;
+}
+.empresa-contenido {
+    grid-column: 2 / span 3;
+    grid-row: 2 / span 4;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+.empresa p {
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.empresa .btn {
+    color: white;
+    background: none;
+    font-size: 1rem;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.empresa .btn:hover {
+    background-color: red;
+    border: 2px solid white;
+    font-style: bold;
+}
