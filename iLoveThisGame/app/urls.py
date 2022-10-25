@@ -7,4 +7,5 @@ urlpatterns = [
     path('empresa', views.empresa, name='empresa'),
     # /categoria/calzados-deportivos
     re_path(r'^categoria/(?P<name>[-\w]+)$', views.category, name='categoria'),
+    path('oferta', views.oferta, name='oferta'),
 ]

@@ -14,4 +14,7 @@ def category(request,name):
     products = {name:'zapatila azul'}
     return render(request,'app/pages/categoria.html', products)
 
+def oferta(request):
+    return render(request,'app/pages/oferta.html', {})
+
 
