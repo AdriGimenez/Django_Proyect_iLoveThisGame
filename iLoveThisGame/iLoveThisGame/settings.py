@@ -55,7 +55,7 @@ ROOT_URLCONF = 'iLoveThisGame.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['H:\Mi unidad\Proyectos Web\Prácticas\iLoveThisGame\iLoveThisGame\iLoveThisGame\Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
