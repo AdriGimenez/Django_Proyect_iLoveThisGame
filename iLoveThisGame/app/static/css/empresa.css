@@ -19,15 +19,15 @@ h3 {
     width: 100vw;
     height: 120vh;
     background-color: black;
-    background-image: url(static/img/j1.jpg);
+    background-image: url("static/img/Aro_def.png");
     background-position: center right;
     background-repeat: no-repeat;
     background-attachment: local;
     background-size: contain;
     /* max-width: 100%; */
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(20, 1fr);
     font-family:'Rubik', sans-serif;
 }
 .empresa-contenido {
@@ -48,11 +48,14 @@ h3 {
     border: 2px solid white;
     border-radius: 5px;
     padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
 }
 .empresa .btn:hover {
     background-color: red;
     border: 2px solid white;
     font-style: bold;
+}
+.espacio{
+    margin-top: 3rem;
 }

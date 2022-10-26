@@ -31,7 +31,7 @@ body{
 }
 .shop_left .shp,.shop_right .shp {
     margin-bottom: 0;
-    margin-top:1.2em;
+    margin-top:2rem;
 }
 .shop_left h6,.shop_right h6{
     font-size: 20px;
@@ -304,6 +304,9 @@ button.shoe-cart:hover {
     -o-background-size: cover;
     -moz-background-size: cover;
     min-height: 225px;
+}
+.margen{
+    margin-top: 1rem;
 }
 @media(max-width:1440px){
 	.ads-grid_shop {
