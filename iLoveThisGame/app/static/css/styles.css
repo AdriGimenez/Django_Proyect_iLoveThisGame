@@ -4,6 +4,9 @@
 body {
     background-color: black;
 }
+.nav:hover{
+    border-bottom: 3px solid red;
+}
 .linea-nav {
     border-bottom: 1.5px solid red;
 }
@@ -14,7 +17,7 @@ body {
 .margenes{
     margin-left: 5px;
 }
-.buscar{
+.index-buscar{
     width: 40%;
    margin-right: 0;
    text-align: right;
@@ -30,6 +33,20 @@ body {
     color: white;
 }
 .imagen{
+    width: 200px;
+    height: 200px;
+}
+footer{
+    background-color: black;
+}
+.btn-footer{
+    color:white;
+}
+.btn-footer:hover{
+    color: red;
+
+}
+.imagen_ofertas{
     width: 200px;
     height: 200px;
 }
