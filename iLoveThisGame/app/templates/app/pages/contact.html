@@ -3,33 +3,39 @@
 {% load static %}
 
 {% block contenido %}
+
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
-   <div class="container contact">
-        <div class="row"></div>
-            <form>
-                <h2 class="titulo">Contacto</h2>
-                <div class="form-group ">
-                    <label for="nameInput" class="form-label label">Nombre</label>
+<div class="container contacto">
+    <div class="row"></div>
+        <form action ="" method ="post" id="formulario">
+            <h2 class="titulo">Contacto</h2>
+            <div class="form-group ">
+                <label for="nameInput" class="form-label label">Nombre</label>
+                
                     <input type="text" class="form-control input" id="nameInput" placeholder="Escribe tu nombre...">
-                </div>
-                <div class="form-group ">
-                    <label for="apellidoInput" class="form-label label">Apellido</label>
-                    <input type="text" class="form-control input" id="apellidoInput" placeholder="Escribe tu apellido...">
-                </div>
-                <div class="form-group">
-                    <label for="emailInput" class="form-label label">Email</label>
-                    <input type="email" class="form-control input" id="emailInput" placeholder="Escribe tu email...">
-                </div>
-                <div class="form-group">
-                    <label for="telInput" class="form-label label">Telefono</label>
-                    <input type="tel" class="form-control input" id="telInput" placeholder="Escribe tu numero...">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1" class="label">Comentarios</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Dejanos tu comentario"></textarea>
-                </div>
-                <button type="submit" class="btn mb-2 button">Enviar</button>
-            </form>
-        </div> 
-   </div> 
+                    
+            </div>
+            <div class="form-group ">
+                <label for="apellidoInput" class="form-label label">Apellido</label>
+                <input type="text" class="form-control input" id="apellidoInput" placeholder="Escribe tu apellido...">
+            </div>
+            <div class="form-group">
+                <label for="emailInput" class="form-label label">Email</label>
+                <input type="email" class="form-control input" id="emailInput" placeholder="Escribe tu email...">
+            </div>
+            <div class="form-group">
+                <label for="telInput" class="form-label label">Telefono</label>
+                <input type="tel" class="form-control input" id="telInput" placeholder="Escribe tu numero...">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1" class="label">Comentarios</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Dejanos tu comentario"></textarea>
+            </div>
+            <button type="submit" class="btn mb-2 button">Enviar</button>
+            <p class="warnings" id="warnings"></p>
+        </form>
+    </div> 
+</div>
+<script src="static/js/main.js"></script>   
+ 
 {% endblock %}

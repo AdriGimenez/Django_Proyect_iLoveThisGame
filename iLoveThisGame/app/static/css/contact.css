@@ -5,10 +5,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 	background:black;
 }
-.contact{
+.contacto{
     width: 500px;
-    border: 2px solid white;
-    background-color:rgb(158, 33, 33);
+    border: 2px solid rgb(215, 5, 5);
+    background-color:rgb(215, 5, 5);
     margin-top: 5rem;
     border-radius: 5px;
     font-weight: bold;
@@ -20,6 +20,11 @@ body {
     color: white;
     margin: 3px;
     margin-top: 4px;
+    cursor: pointer;
+    border: 1px solid black;
+}
+.input:hover{
+    border: 2px solid white;
 }
 .titulo{
     font-size: 23px;
@@ -36,6 +41,12 @@ body {
 textarea{
     margin-bottom: 30px;
     margin-top: 3px;
+    border: 1px solid white;
+}
+textarea:hover{
+    
+    border:3px solid black;
+    cursor: pointer;
 }
 .button{
     font-size: 20px;
@@ -46,6 +57,18 @@ textarea{
     align-content: center;
     margin-left: 180px;
 }
+.button:hover{
+    background-color: white;
+    color: black;
+}
+.warnings{
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    color: white;
+    padding-top: 20px;
+}
+
 
 /*Small*/
 @media screen and (max-width:576px) {
