@@ -20,13 +20,12 @@ h3 {
     height: 120vh;
     background-color: black;
     background-image: url("static/img/Aro_def.png");
-    background-position: center right;
+    background-position:  right;
     background-repeat: no-repeat;
     background-attachment: local;
     background-size: contain;
-    /* max-width: 100%; */
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(20, 1fr);
     font-family:'Rubik', sans-serif;
 }
