@@ -7,6 +7,33 @@
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 <div class="container contacto">
     <div class="row"></div>
+
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        <form novalidate method ="POST" id="formulario" action="{% url 'contact' %}">
+            {% csrf_token %}
+            <h2 class="titulo">Contacto</h2>
+
+            {% for campo in contacto_form %}
+            <div class="form-group ">
+                <label for="nameInput" class="form-label label">{{campo.label}}</label>
+                {{campo}}
+                <div>{{campo.errors}}</div>
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn mb-2 button">Enviar</button>
+            <p class="warnings" id="warnings"></p>
+        </form>
+    </div> 
+</div>
+<script src="static/js/main.js"></script>
+<!--<div class="container contacto">
+    <div class="row"></div>
         <form action ="" method ="post" id="formulario">
             <h2 class="titulo">Contacto</h2>
             <div class="form-group ">
@@ -35,7 +62,6 @@
             <p class="warnings" id="warnings"></p>
         </form>
     </div> 
-</div>
-<script src="static/js/main.js"></script>   
+</div>-->
  
 {% endblock %}
