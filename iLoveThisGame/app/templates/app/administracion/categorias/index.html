@@ -1,0 +1,49 @@
+{% extends 'app\administracion\base.html' %}
+
+{% block titulo %}Categorias{% endblock%}
+
+{% block contenido %}
+<h1 class="mt-4">Categorias</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="{% url 'inicio_administracion' %}">Administracion</a></li>
+    <li class="breadcrumb-item active">Categorias</li>
+</ol>
+<div class="col-md-6 mb-md-0 mb-6">
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+<div class="card">
+    <div class="card-body">
+        <a name="" id="" class="btn btn-success" href="{% url 'categorias_nuevo' %}" role="button"> <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
+        <!-- bs5-table-defaul -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categoria in categorias %}
+                    <tr>
+                        <td>{{categoria.nombre}}</td>
+                        <td>
+                            <a href="{% url 'categorias_editar' categoria.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
+                            <a href="{% url 'categorias_eliminar' categoria.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    <div class="card-footer text-muted">
+        Footer categorias
+    </div>
+</div>
+
+{% endblock %}
+    
