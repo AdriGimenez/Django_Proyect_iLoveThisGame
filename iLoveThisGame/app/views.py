@@ -6,9 +6,19 @@ from .forms import ArticuloForm, MarcaForm, CategoriaForm
 from django.views import View
 from django.views.generic import ListView
 
+from app.forms import ContactoForm
+
 
 def contact(request):
-    return render(request, 'app/pages/contact.html', {})
+    if request.method =="POST":
+        contacto_form = ContactoForm(request.POST)
+        if(contacto_form.is_valid()):
+             messages.success(request,'Mensaje enviado con exito')
+        else:
+            messages.warning(request,'Por favor revisa los errores')
+    else:
+        contacto_form = ContactoForm()
+    return render(request, 'app/pages/contact.html', {'contacto_form':contacto_form})
 
 def home(request):
     return render(request, 'app/pages/index.html', {})
