@@ -36,6 +36,9 @@
                     <li class="nav-item me-3">
                         <a class="nav-link  text-light nav" href="{% url 'empresa' %}">Empresa</a>
                     </li>
+                    {% if perms.app %}
+                        <li><a class="nav-link  text-light nav" href="{% url 'inicio_administracion' %}">Administración</a></li>
+                    {% endif %}
                     
                 </ul>
                 {%if user.is_authenticated %}
