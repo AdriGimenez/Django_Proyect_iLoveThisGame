@@ -45,9 +45,16 @@ def category(request, name):
     products = {name: name}
     return render(request,'app/pages/categoria.html', products)
 
-def descripcion(request, producto):
-    unproducto = {producto: producto}
-    return render(request,'app/pages/descripcion.html', unproducto)
+def descripcion(request, id_articulo):
+    try:
+        articulo = Articulo.objects.get(id=id_articulo)
+    except Articulo.DoesNotExist:
+        return render(request, 'app/administracion/404_admin.html')
+    
+    # if request.method == "GET":
+    #     formulario = ArticuloForm(instance=articulo)
+
+    return render(request, 'app/pages/descripcion.html', {'articulo': articulo, 'id_articulo': id_articulo})
 
 def oferta(request):
     return render(request,'app/pages/oferta.html', {})
