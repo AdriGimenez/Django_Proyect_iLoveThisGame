@@ -8,7 +8,7 @@ urlpatterns = [
     path('empresa', views.empresa, name='empresa'),
     # /categoria/calzados-deportivos
     re_path(r'^categoria/(?P<name>[-\w]+)$', views.category, name='categoria'),
-    re_path(r'^descripcion/(?P<producto>[-\w]+)$', views.descripcion, name='descripcion'),
+    path('descripcion/<int:id_articulo>', views.descripcion, name='descripcion'),
     path('oferta', views.oferta, name='oferta'),
     path('registrarse', views.registrarse, name='registrarse'),
     path('account/login/',auth_views.LoginView.as_view(template_name='app/registration/login.html'), name='login'),
