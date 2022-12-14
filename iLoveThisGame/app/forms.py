@@ -3,6 +3,8 @@ from django.forms import ValidationError
 from django.core.validators import RegexValidator
 from django.forms import ModelForm
 from .models import Articulo, Marca, Categoria
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 def solo_caracteres(value):
     if any(char.isdigit() for char in value ):
@@ -20,7 +22,7 @@ class ContactoForm(forms.Form):
             error_messages={
                     'required': 'Por favor completa el campo',                    
                 },
-            widget= forms.TextInput(attrs={'class':'form-control input','type':'email'})
+            widget= forms.TextInput(attrs={'class':'form-control input','type':'email', 'placeholder':'Ingrese el email...' })
             )
 
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="El número de teléfono debe ingresarse en el formato: '+999999999'. Se permiten hasta 15 dígitos.")
@@ -29,6 +31,11 @@ class ContactoForm(forms.Form):
                 widget= forms.NumberInput(attrs={'class':'form-control input','placeholder':'Ingrese el numero...'}))
     comentario = forms.CharField(label="Comentarios:", max_length=500,
             widget=forms.Textarea(attrs={'class':'form-control input','rows':5, 'placeholder':"Dejanos tu comentario..."}))
+
+class BuscarForm(forms.Form):
+    cadenabuscar = forms.CharField(required=False, validators=(solo_caracteres,),
+            widget= forms.TextInput(attrs={'class':'form-control me-2 buscar-margin','placeholder':'Buscar..', 'aria-label':"Search"})
+            )
 
 color_choice = [
         ('', '-Seleccionar Color-'),
@@ -107,3 +114,8 @@ class ArticuloForm(ModelForm):
     class Meta:
         model = Articulo
         fields = '__all__'
+
+class RegistrarUsuarioForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2','email']

@@ -20,18 +20,19 @@
 
             {% for campo in contacto_form %}
             <div class="form-group ">
-                <label for="nameInput" class="form-label label">{{campo.label}}</label>
+                <label for="nameInput" class="form-label">{{campo.label}}</label>
                 {{campo}}
                 <div>{{campo.errors}}</div>
             </div>
             {% endfor %}
-
-            <button type="submit" class="btn mb-2 button">Enviar</button>
+            <button type="submit" class="btn mb-3  button">Enviar</button>
             <p class="warnings" id="warnings"></p>
+            </div>
         </form>
     </div> 
 </div>
 <script src="static/js/main.js"></script>
+{% endblock %}
 <!--<div class="container contacto">
     <div class="row"></div>
         <form action ="" method ="post" id="formulario">
@@ -64,4 +65,4 @@
     </div> 
 </div>-->
  
-{% endblock %}
+

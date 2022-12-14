@@ -1,0 +1,77 @@
+{% extends 'app/layout.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<div class="justify-content-center align-items-center vh-100">
+    <div class="bg-white p-5 rounded-5 shadow col-4 offset-md-4" style="width: 25rem; margin-top: 3rem;border:2px solid rgb(215, 5, 5);">
+
+        <div class="d-flex justify-content-center">
+            <img src="{% static '/img/login/login-icon.svg'%}" alt="login-icon" style="height: 7rem;"/>
+        </div>
+        <div class="text-center fs-1 fw-bold">Iniciar Sesión</div>
+        
+        <form action="" method="post" class="needs-validation" id="login">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username" class="form-label">Usuario:</label>
+                <div class="input-group ">
+                    <div class="input-group-text bg-danger">
+                        <img src="{% static '/img/login/username-icon.svg'%}" alt="username-icon" style="height: 1rem;"/>
+                    </div>
+                    <input type="text" id="{{ form.username.auto_id }}" name="{{ form.username.name }}" class="form-control input"
+                        placeholder="Ingresa el nombre de usuario" value="{{ form.username.value | default:'' }}" />
+                </div>
+                <div class="error">{{form.username.errors}}</div>
+            </div>
+            <div class="form-group">
+                <label for="pwd" class="form-label">Contraseña:</label>
+                <div class="input-group">
+                    <div class="input-group-text bg-danger">
+                        <img src="{% static '/img/login/password-icon.svg'%}" alt="password-icon" style="height: 1rem;"/>
+                    </div>
+                    <input type="password" id="{{ form.password.auto_id }}" name="{{ form.password.name }}" class="form-control input"
+                            placeholder="Ingresa la contraseña" value="{{ form.password.value | default:'' }}" />
+                </div>
+                <div class="error">{{form.password.errors}}</div>
+            </div>
+            <div class="d-flex justify-content-around mt-2 mb-3">
+                <div class="d-flex align-items-center gap-2">
+                    <label class="form-check-label"></label>
+                    <input class="form-check-input pt-1" type="checkbox" style="font-size: 0.9rem;"/>
+                    <div class="pt-1" style="font-size: 0.9rem"> Recuérdame</div>
+                </div>
+                <div class="pt-1">
+                    <a
+                    href="#"
+                    class="text-decoration-none text-danger fw-semibold fst-italic"
+                    style="font-size: 0.9rem"
+                    >¿Olvidaste tu contraseña?</a>
+                </div>
+            </div>
+            <div class="d-flex gap-1 justify-content-center mt-1">
+                <div>¿No tienes una cuenta?</div>
+                <a href="{% url 'registrarse' %}" class="text-decoration-none text-danger fw-semibold">Registrarse</a>
+            </div>
+            <div class="p-3">
+                <div class="border-bottom text-center" style="height: 0.9rem">
+                    <span class="bg-white px-3">or</span>
+                </div>
+            </div>
+            <div class="btn d-flex gap-2 justify-content-center border mt-3 shadow-sm">
+                <img src="{% static '/img/login/google-icon.svg'%}" alt="google-icon"style="height: 1.6rem"/>
+                <div class="fw-semibold text-secondary">Continue with Google</div>
+            </div>
+            <button type="submit" class="btn btn-danger text-white w-100 mt-4 fw-semibold shadow-sm">Entrar</button>
+
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{message}}
+            </div>
+            {% endfor %}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
