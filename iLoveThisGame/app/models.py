@@ -23,3 +23,6 @@ class Articulo (models.Model):
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     
+    def __str__(self):
+        return f"Nombre: {self.nombre}, Descripcion: {self.descripcion}, Precio: ${self.precio}, Cantidad: {self.cantidad}, Color Principal: {self.colorPrincipal}, Talla: {self.talla}, Marca: {self.marca}, Categoria: {self.categoria}"
+
