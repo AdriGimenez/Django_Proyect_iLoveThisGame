@@ -1,0 +1,51 @@
+{% extends 'app/layout.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<div class="justify-content-center align-items-center vh-100">
+    <div class="bg-white p-5 rounded-5 shadow col-4 offset-md-4" style="width: 25rem; margin-top: 3rem;border:2px solid rgb(215, 5, 5);">
+    <div class="text-center fs-1 mb-3 fw-bold">Registrarse</div>
+
+    <form action="" method="post" class="needs-validation" id="registro">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="form-label">{{form.username.label}}</label>
+            <div class="input-group ">
+                <input type="text" id="{{form.username.auto_id }}" name="{{form.username.name}}" 
+                            value="{{ form.username.value | default:'' }}" class="form-control input rounded-3" 
+                            placeholder="Escribe tu usuario..."/>
+            </div>
+            <div class="error">{{form.username.errors}}</div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">{{form.email.label}}</label>
+            <div class="input-group">
+                <input type="email" id="{{form.email.auto_id }}" name="{{form.email.name}}"  value="{{ form.email.value | default:'' }}" 
+                    class="form-control input rounded-3" placeholder="Escribe tu email..."/>
+            </div>
+            <div class="error">{{form.email.errors}}</div>
+        </div>
+        <div class="form-group">
+            <label class="form-label" >{{ form.password1.label }}</label>
+            <div class="input-group">
+                <input type="password" id="{{ form.password1.auto_id }}" name="{{ form.password1.name }}" value="{{ form.password1.value | default:'' }}"
+                 class="form-control input rounded-3" placeholder="Ingrese su contraseña"/>
+            </div>
+            <div class="error">{{form.password1.errors}}</div>
+        </div>
+        <div class="form-group">
+            <label class="form-label">{{ form.password2.label }}</label>
+            <div class="input-group">
+                <input type="password" id="{{ form.password2.auto_id }}" name="{{ form.password2.name }}" value="{{ form.password2.value | default:'' }}"
+                 class="form-control input rounded-3" placeholder="Repetir contraseña" />
+            </div>
+            <div class="error">{{form.password2.errors}}</div>
+        </div>
+    <button type="submit" class="btn btn-danger text-white w-100 mt-4 fw-semibold shadow-sm">Registrarse</button>
+  </form>
+    </div>
+</div>
+
+{% endblock %}

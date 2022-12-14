@@ -36,9 +36,31 @@
                     <li class="nav-item me-3">
                         <a class="nav-link  text-light nav" href="{% url 'empresa' %}">Empresa</a>
                     </li>
+                    
                 </ul>
-                <button class="btn btn-danger me-3" type="submit"> Iniciar Sesión</button>
-                <button class="btn btn-secondary bi bi-cart3 me-3" type="submit"></button>
+                {%if user.is_authenticated %}
+                <li class="nav-item dropdown me-3">
+                    <a class="nav-link dropdown-toggle text-light nav btn btn-outline-danger fa-regular fa-user" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{ user.username }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Datos Personales</a></li>
+                        <li><a class="dropdown-item" href="#">Favoritos</a></li>
+                        <li><a class="dropdown-item" href="#">Pedidos</a></li>
+                        <li><a class="dropdown-item" href="#">Direcciones</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item"  style="color:rgb(215, 5, 5);font-weight: bold;"href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+                    <div>
+                       <button class="btn btn-secondary bi bi-cart3 me-3" style="margin:20px " type="submit"></button>
+                    </div>
+                    {%else %}
+                    <button class="btn btn-danger me-3" type="submit">
+                        <a class="text-light text-decoration-none" href="{% url 'login' %}">Iniciar Sesión </a></button>
+                    
+                    {% endif %}
             </div>
         </div>
         <div class="linea-nav"></div>

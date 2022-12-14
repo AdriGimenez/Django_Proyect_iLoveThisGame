@@ -8,40 +8,45 @@ body {
 .contacto{
     width: 500px;
     border: 2px solid rgb(215, 5, 5);
-    background-color:rgb(215, 5, 5);
+    background-color:white;
     margin-top: 5rem;
-    border-radius: 5px;
+    border-radius: 10px;
     font-weight: bold;
+    color: black;
+    box-shadow: 0px 0px 70px gray;
 }
 .input{
     width: 100%;
+    
     border-radius: 4px;
-    background-color: black;
-    color: white;
+    background-color:rgb(234, 234, 234);
+    color:black;
     margin: 3px;
     margin-top: 4px;
     cursor: pointer;
     border: 1px solid black;
 }
 .input:hover{
-    border: 2px solid white;
+    border: 2px solid black;
+    box-shadow: 0px 0px 50px rgba(102, 102, 102, 0.2);
 }
 .titulo{
     font-size: 23px;
     text-align: center;
     font-weight: bold;
     margin-top: 1rem;
-    color: white;
+    color: black;
 }
 .label{
-    color: white;
+    color:black;
     margin: 3px;
     margin-top: 4px;
+    background-color: white;
 }
 textarea{
     margin-bottom: 30px;
     margin-top: 3px;
-    border: 1px solid white;
+    border: 1px solid rgb(215, 5, 5) ;
 }
 textarea:hover{
     
@@ -52,20 +57,20 @@ textarea:hover{
     font-size: 20px;
     border-radius: 5px;
     color: white;
-    background-color: black;
-    width: 25%;
+    background-color:rgb(215, 5, 5) ;
+    width: 100%;
     align-content: center;
-    margin-left: 180px;
+    margin-top: 3rem;
 }
 .button:hover{
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: rgb(215, 5, 5);
 }
 .warnings{
     width: 200px;
     text-align: center;
     margin: auto;
-    color: white;
+    color: rgb(215, 5, 5);
     padding-top: 20px;
 }
 
