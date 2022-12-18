@@ -22,9 +22,9 @@
                             Categorías
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'categoria' name='indumentaria' %}">Indumentaria</a></li>
-                            <li><a class="dropdown-item" href="{% url 'categoria' name='zapatillas' %}">Zapatillas</a></li>
-                            <li><a class="dropdown-item" href="{% url 'categoria' name='accesorios' %}">Accesorios</a></li>
+                            <li><a class="dropdown-item" href="{% url 'categoria' name='Indumentaria' %}">Indumentaria</a></li>
+                            <li><a class="dropdown-item" href="{% url 'categoria' name='Zapatillas' %}">Zapatillas</a></li>
+                            <li><a class="dropdown-item" href="{% url 'categoria' name='Accesorios' %}">Accesorios</a></li>
                         </ul>
                     </li>
                     <li class="nav-item me-3">
@@ -42,11 +42,10 @@
                     
                 </ul>
                 {%if user.is_authenticated %}
-                <li class="nav-item dropdown me-3">
-                    <a class="nav-link dropdown-toggle text-light nav btn btn-outline-danger fa-regular fa-user" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        {{ user.username }}
-                    </a>
+                <div class="nav-item dropdown me-2" style="color:white ;">
+                    Hola  {{ user.username }}
+                    <a class="nav-link dropdown-toggle text-light nav btn btn-outline-danger fa-regular fa-user " href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"></a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Datos Personales</a></li>
                         <li><a class="dropdown-item" href="#">Favoritos</a></li>
@@ -55,20 +54,91 @@
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item"  style="color:rgb(215, 5, 5);font-weight: bold;"href="{% url 'logout' %}">Cerrar Sesión</a></li>
                     </ul>
-                </li>
+                </div>
                     <div>
-                       <button class="btn btn-secondary bi bi-cart3 me-3" style="margin:20px " type="submit"></button>
+                        <button class="btn btn-secondary bi bi-cart3 me-3" style="margin:20px " type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+                        </button>
                     </div>
-                    {%else %}
-                    <button class="btn btn-danger me-3" type="submit">
-                        <a class="text-light text-decoration-none" href="{% url 'login' %}">Iniciar Sesión </a></button>
-                        <button class="btn btn-success me-3" type="submit">
-                            <a class="text-light text-decoration-none" href="{% url 'registrarse' %}">Registrarse </a></button>
+                    <!-- The Modal -->
                     
-                    {% endif %}
+                    <div class="modal"id="myModal">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                             <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Mi Carrito</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <table class="table table-bordered" style="border-color: transparent ">
+                                        <thead>
+                                            <tr>
+                                                <th scope ="col"></th>
+                                                <th scope ="col"></th>
+                                                <th scope ="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% if request.session.carrito.items %}
+                                        {% for key, value in request.session.carrito.items %}
+                                            <tr>
+                                                <td>{{value.nombre}}</td>
+                                                <td >
+                                                    <div class="btn-group"></div>
+                                                        <button type="button" class=" btn btn-primary">
+                                                        <a href="{% url 'add' value.articulo_id %}" class="badge btn btn-primary badge-dark">+</a></button> 
+                                                        <button type="button" class="btn btn-outline-primary">{{value.cantidad}} </button>
+                                                        <button type="button" class="btn btn-primary">
+                                                            <a href="{% url 'sub' value.articulo_id %}" class="badge btn btn-primary badge-dark  " >-</a></button>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-outline-primary bi bi-trash">
+                                                        <a href="{% url 'del' value.articulo_id %}"></a> 
+                                                    </button><br>
+                                                    $ {{value.acumulado}} 
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        {% else %}
+                                        <tr>
+                                            <td colspan="3">
+                                                <div class="alert alert-danger text-center">Sin Productos</div>
+                                            </td>
+                                        </tr>
+                                        {% endif %}
+                                        </tbody>
+                                    </table>
+                                    <div class="row text-center carrito-margin">
+                                        <div class="col-8 mt-3"></div>
+                                        <div class="col-4 mt-3">
+                                            <a href="{% url 'cls' %}" class="btn btn-outline-danger">Vaciar Carrito</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-9">
+                                            <h3 style=" font-weight:bold">Total:</h4>
+                                        </div>
+                                        <div class="col-3 fw-bold font-size-0.5rem">
+                                            $ {{total_carrito}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <a href="#" class="btn btn-success w-100">Guardar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                {%else %}
+                <button class="btn btn-danger me-3" type="submit">
+                    <a class="text-light text-decoration-none" href="{% url 'login' %}">Iniciar Sesión </a></button>
+                <button class="btn btn-success me-3" type="submit">
+                    <a class="text-light text-decoration-none" href="{% url 'registrarse' %}">Registrarse </a></button>
+                {% endif %}
             </div>
         </div>
         <div class="linea-nav"></div>
     </nav>
-    
-
