@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+
+from app.carrito import Carrito
 from .models import Articulo, Marca, Categoria
 from .forms import ArticuloForm, MarcaForm, CategoriaForm
 from django.views import View
@@ -25,9 +27,14 @@ def buscar(request):
     if request.method =="POST":
         buscar_form = BuscarForm(request.POST)
         texto = request.POST.get("cadenabuscar")
+        try:
+            productos = Articulo.objects.filter(descripcion__icontains =texto)
+        except Articulo.DoesNotExist:
+            return render(request, 'app/404.html') 
 
         ## Mostramos una lista de coincidencias
-        return render(request,'app/pages/buscar.html', {'cadenabuscar': texto})
+        print (productos)
+        return render(request,'app/pages/buscar.html', {'productos': productos})
 
     else:
         buscar_form = BuscarForm()
@@ -42,8 +49,9 @@ def empresa(request):
     return render(request,'app/pages/empresa.html', {})
 
 def category(request, name):
-    products = {name: name}
-    return render(request,'app/pages/categoria.html', products)
+    category = Categoria.objects.get(nombre = name)
+    productos = Articulo.objects.filter(categoria = category.id)
+    return render(request,'app/pages/categoria.html', {'productos': productos})
 
 def descripcion(request, id_articulo):
     try:
@@ -53,7 +61,6 @@ def descripcion(request, id_articulo):
     
     # if request.method == "GET":
     #     formulario = ArticuloForm(instance=articulo)
-
     return render(request, 'app/pages/descripcion.html', {'articulo': articulo, 'id_articulo': id_articulo})
 
 def oferta(request):
@@ -61,6 +68,41 @@ def oferta(request):
 
 def perfil(request):
     return render(request,'app/pages/perfil.html', {})
+
+### Carrito
+
+
+def tienda(request):
+    listaProductos = Articulo.objects.all()
+    return render (request, "app/pages/tienda.html", {"listaProductos":listaProductos})
+
+def misproductos(request):
+    return render (request, "app/pages/misproductos.html", {})
+
+def agregar_producto(request, articulo_id):
+    carrito = Carrito(request)
+    producto = Articulo.objects.get(id = articulo_id)
+    carrito.agregar(producto)
+    return redirect ("tienda")
+
+def eliminar_producto(request, articulo_id):
+    carrito = Carrito(request)
+    producto = Articulo.objects.get(id = articulo_id)
+    carrito.eliminar(producto)
+    return redirect ("tienda")
+
+def restar_producto(request, articulo_id):
+    carrito = Carrito(request)
+    producto = Articulo.objects.get(id = articulo_id)
+    carrito.restar(producto)
+    return redirect ("tienda")
+
+def limpiar_carrito(request):
+    carrito = Carrito(request)
+    carrito.limpiar()
+    return redirect ("tienda")
+
+
 
 ### Vistas Protegidas.
 def index_administracion(request):

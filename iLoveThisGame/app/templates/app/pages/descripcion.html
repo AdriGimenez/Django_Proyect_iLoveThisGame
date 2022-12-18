@@ -1,43 +1,117 @@
 {% extends 'app/layout.html' %}
 
 {% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static '/css/categorias.css' %}">
+{% endblock %}
 
 {% block contenido %}
-<div class ="row">
-    <div class="col-9">
-        <div class="row">
-            <div class="col-6 ">
-                <div class="card mt-3" style = "width: 100%;margin-left: 15rem;">
-                    <img src="{% static '/img/products/1.png' %}" style="width: 100%;" class="card-img-top" alt="{{product.name}}"/>
-                    <div class="card-body">
-                        <h5 class="card-title">{{articulo.nombre}}</h5>
-                        <p class="card-text fw-bold fs-1">${{articulo.precio}}</p>
-                        <p class="card-text">{{articulo.descripcion}}</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="#" class="btn btn-success"> Añadir al carrito</a>
-                    </div>
-                </div>
+<div class="container mt-3" style="background-color: white;">
+    <div class ="row">
+			<div class="col-4 col-md-4 single-right-left ">
+                <img src="/static/img/products/{{articulo.id}}.png" style="width: 100%;" class="card-img-top" 
+                    alt="{{articulo.name}}"/>
+                <div class="clearfix"></div>
             </div>
-            <!-- {% for product in articulos %}
-                <div class="col-md-3 col-sm-12 col-lg-4 ">
-                    <div class="card" style = "width: 100%;">
-                        <img src="{% static '/img/products/zapatillas_nike.png' %}" style="width: 100%;" class="card-img-top" alt="{{product.name}}"/>
-                        <div class="card-body">
-                            <h5 class="card-title">{{product.name}}</h5>
-                            <p class="card-text">{{product.price}}</p>
-                            <p class="card-text">{{product.excerpt}}</p>
-                        </div>
-                        <div class="card-footer text-center">
-                            <a href="#" class="btn btn-success"> Añadir al carrito</a>
-                        </div>
+            <div class=" col-8 col-md-8 single-right-left mt-3">
+				<h3>{{articulo.nombre}}</h3>
+				<p class=" fw-bold fs-1">${{articulo.precio}}</p>
+                    <ul class="stars2">
+                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-star-half-stroke" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                    </ul>
+                <div class="description">
+                    <h5>Consulta la entrega, las opciones de pago y los cargos en tu ubicación</h5>
+                    <form action="#" method="post">
+                        <input type="text" value="Codigo Postal" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Codigo Postal';}"
+                            required="">
+                        <input type="submit" value="Check">
+                    </form>
+                </div>
+                <div class="color-quality">
+                    <div class="color-quality-right">
+                        <h5>Color :</h5>
+                        <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+                            <option value="null">Azul</option>
+                            <option value="null">Negro</option> 
+                            <option value="null">Blanco</option>					
+                            <option value="null">Violeta</option>
+                            <option value="null">Rosa</option>
+                            <option value="null">Plateado</option>								
+                        </select>
                     </div>
                 </div>
-            {% endfor %} -->
+                <div class="occasional">
+                    <h5>Tipos :</h5>
+                    <div class="colr ert">
+                        <label class="radio"><input type="radio" name="radio" checked=""><i></i>Urbano</label>
+                    </div>
+                    <div class="colr">
+                        <label class="radio"><input type="radio" name="radio"><i></i> Deportivo </label>
+                    </div>
+                    <div class="colr">
+                        <label class="radio"><input type="radio" name="radio"><i></i>Casual</label>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="occasion-cart">
+                    <div class="shoe single-item single_page_b">
+                        <form action="#" method="post">
+                            <input type="hidden" name="cmd" value="_cart">
+                            <input type="hidden" name="add" value="1">
+                            <input type="hidden" name="shoe_item" value="Chikku Loafers">
+                            <input type="hidden" name="amount" value="405.00">
+                            
+                            <a href="{% url 'add' articulo.id %}" class="btn btn-success"> Añadir al carrito</a>
+
+                            <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                        </form>
+                    </div>
+                </div>
+                <ul class="social-nav model-3d-0 footer-social social single_page">
+                    <li class="share">Compartir en  : </li>
+                    <li>
+                        <a href="#" class="facebook">
+                            <div class="front"><i class="fa-brands fa-facebook-f"aria-hidden="true"></i></div>
+                            <div class="back"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter">
+                            <div class="front"><i class="fa-brands fa-twitter" aria-hidden="true"></i></div>
+                            <div class="back"><i class="fa-brands fa-twitter" aria-hidden="true"></i></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="instagram">
+                            <div class="front"><i class="fa-brands fa-instagram" aria-hidden="true"></i></div>
+                            <div class="back"><i class="fa-brands fa-instagram" aria-hidden="true"></i></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="pinterest">
+                            <div class="front"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></div>
+                            <div class="back"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+            <!--/tabs-->
+            <div class="card descripcion-card">
+                <div class="card-body">
+                  <h4 class="card-title">Descripcion</h4>
+                  <p class="card-text">{{articulo.descripcion}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
         </div>
     </div>
-    <div class="col-3">
-
-    </div>
-</div>
+<div class="spacing"></div>
+<div class="clearfix"></div>
 {% endblock %}
+            

@@ -61,6 +61,7 @@ body{
 }
 .product-men {
     padding-left: 0;
+    background-color: white;
 }
 .product-men:nth-child(2) .product-new-top,.product-men:nth-child(6) .product-new-top,.product-men:nth-child(7) .product-new-top  {
 	background: #FFC107;
@@ -228,11 +229,12 @@ body{
 	text-align: left;
 }
 span.money {
-    font-size: 1.3em;
+    font-size: 1.5em;
     font-weight: 700;
 }
 ul.stars i {
-	font-size: 9px;
+	font-size: 15px;
+    margin-top: 0;
 }
 ul.stars li {
   list-style:none;

@@ -10,53 +10,53 @@
 <div class="product-sec1">
     <!--/mens-->
     <div class="row">
-        <div class="col-md-4 product-men">
+        {% for producto in productos %}
+        <div class="col-md-4 product-men ">
             <div class="product-shoe-info shoe">
                 <div class="men-pro-item">
                     <div class="men-thumb-item">
-                        <img src="{% static '/img/products/s1.jpg' %}" alt="">
+                        <img src="/static/img/products/{{producto.id}}.png" style="width: 100%;" class="card-img-top" 
+                                alt="{{product.name}}"/>
                         <div class="men-cart-pro">
                             <div class="inner-men-cart-pro">
-                                <a href="{% url 'descripcion' producto='zapatillas-nike-azul-deportiva' %}" class="link-product-add-cart">Descripción</a>
+                                <a href="{% url 'descripcion' id_articulo=producto.id %}" class="link-product-add-cart">Descripción</a>
                             </div>
-                        </div>
+                        </div> 
                         <span class="product-new-top">New</span>
-                    </div>
+                    </div> 
                     <div class="item-info-product">
                         <h4>
-                            <a href="{% url 'descripcion' producto='zapatillas-nike-azul-deportiva' %}">Bella Toes </a>
+                            <a href="{% url 'descripcion' id_articulo=producto.id %}" style="text-decoration:none">{{producto.nombre}} </a>
                         </h4>
                         <div class="info-product-price">
                             <div class="grid_meta">
                                 <div class="product_price">
                                     <div class="grid-price ">
-                                        <span class="money ">$675.00</span>
+                                        <span class="money "> $ {{producto.precio}}</span>
                                     </div>
-                                </div>
+                                </div> 
                                 <ul class="stars">
                                     <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa-solid fa-star-half-stroke" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                             <div class="shoe single-item hvr-outline-out">
-                                <form action="#" method="post">
-                                    <input type="hidden" name="cmd" value="_cart">
-                                    <input type="hidden" name="add" value="1">
-                                    <input type="hidden" name="shoe_item" value="Bella Toes">
-                                    <input type="hidden" name="amount" value="675.00">
-                                    <button type="submit" class="shoe-cart pshoe-cart"><i class="bi bi-cart3" aria-hidden="true"></i></button>
-
-                                    <a href="#" data-toggle="modal" data-target="#myModal1"></a>
+                                <form action="{% url 'add' producto.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="shoe-cart pshoe-cart">
+                                        <i class="bi bi-cart3" aria-hidden="true"></i></button>
                                 </form>
                             </div>
                         </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
 </div>    
 {% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'app/layout.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<div class ="row mt-3">
+                <div class="col-8">
+                </div>
+               <!-- <div class="row"> 
+                {% for producto in listaProductos %}
+                <div class="col-md-3 col-sm-12 col-lg-4 ">
+                    <div class="card" style = "width: 100%;">
+                        <img src="/static/img/products/{{producto.id}}.png" style="width: 100%;" class="card-img-top" 
+                                alt="{{product.name}}"/>
+                        <div class="card-body">
+                            <h5 class="card-title">{{producto.nombre}}</h5>
+                            <p class="card-text">{{producto.descripcion}}</p>
+                            <p class="card-text">{{producto.precio}}</p>
+                            <p class="card-text">{{producto.Imagen}}</p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="{% url 'add' producto.id %}" class="btn btn-success"> Agregar al carrito</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %} 
+        </div>
+    </div>-->
+    <div class="col-4">
+        {% include "app/pages/carrito.html" %}
+    </div>
+</div>
+{% endblock %}

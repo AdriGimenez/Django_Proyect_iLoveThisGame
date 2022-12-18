@@ -16,6 +16,13 @@ urlpatterns = [
     path('account/',include('django.contrib.auth.urls')),
     path('perfil', views.perfil, name='perfil'),
     re_path(r'buscar', views.buscar, name='buscar'),
+    path('tienda', views.tienda, name='tienda'),
+    path('misproductos', views.misproductos, name='misproductos'),
+    path('agregar/<int:articulo_id>/', views.agregar_producto, name="add"),
+    path('eliminar/<int:articulo_id>/', views.eliminar_producto, name="del"),
+    path('restar/<int:articulo_id>/', views.restar_producto, name="sub"),
+    path('limpiar/', views.limpiar_carrito, name="cls"),
+   
 
     #Administracion
     #Articulos urls
